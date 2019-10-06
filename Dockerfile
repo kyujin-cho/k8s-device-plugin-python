@@ -129,15 +129,10 @@ RUN set -ex; \
 	rm -f get-pip.py
 
 RUN apt-get update && apt-get install -y --no-install-recommends gcc linux-libc-dev libc6-dev libffi-dev git && \
-	git clone https://github.com/lablup/backend.ai-common ${PREFIX}/backend.ai-common && \
 	${PREFIX}/bin/pip install --no-cache-dir -U pip setuptools
-
-COPY requirements.txt ${PREFIX}/requirements.txt
-RUN ${PREFIX}/bin/pip install -r ${PREFIX}/requirements.txt
-RUN ${PREFIX}/bin/pip install -e ${PREFIX}/backend.ai-common
 
 COPY dist/${WHL_NAME} ${PREFIX}/${WHL_NAME}
 RUN	${PREFIX}/bin/pip install ${PREFIX}/${WHL_NAME}
-RUN rm -rf ${PREFIX}/${WHL_NAME} ${PREFIX}/requirements.txt
+RUN rm -rf ${PREFIX}/${WHL_NAME}
 
-CMD ["python", "-m", "ai.backend.accelerator.server"]
+CMD ["python", "-m", "kyujin.deviceplugin.server"]
