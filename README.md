@@ -19,7 +19,8 @@ python -c "import configparser; c = configparser.ConfigParser(); c.read('setup.c
 ### Recompiling Protobuf Python codes
 1. Run 
 ```sh
-python -c "import configparser; c = configparser.ConfigParser(); c.read('setup.cfg'); print(c['options.extras_require']['build'])" | xargs pip install
+python -c "import configparser; c = configparser.ConfigParser(); c.read('setup.cfg'); print(c['options.extras_require']['build'])" | xargs pip install 
+python -c "import configparser; c = configparser.ConfigParser(); c.read('setup.cfg'); print(c['options.extras_require']['dev'])" | xargs pip install
 ```
 to install build-only dependencies.
 
