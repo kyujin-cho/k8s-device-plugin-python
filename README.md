@@ -22,5 +22,6 @@ python -c "import configparser; c = configparser.ConfigParser(); c.read('setup.c
 python -c "import configparser; c = configparser.ConfigParser(); c.read('setup.cfg'); print(c['options.extras_require']['build'])" | xargs pip install
 ```
 to install build-only dependencies.
+
 2. Run `cd src/kyujin/deviceplugin/grpc`.
 3. Run `python -m grpc_tools.protoc -I=. --python_out=. --grpc_python_out=. -I=$GOPATH/src -I=$GOPATH/src/github.com/gogo/protobuf/protobuf gogo.proto api.proto`.
