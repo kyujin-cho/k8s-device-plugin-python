@@ -38,6 +38,8 @@ class DevicePluginServicer(api_grpc.DevicePluginBase):
                 for device_id in self.devices
             ]
         ))
+        while True:
+            pass # TODO: Implement device watching feature using select, like nVIDIA's device plugin implementation
 
     async def Allocate(self, stream):
         log.info('gRPC::Allocate')
