@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 ARG PREFIX=/opt/backend.ai
-ARG WHL_NAME=backend.ai_accelerator_cuda-1.2.3-py3-none-any.whl
+ARG WHL_NAME=k8s_device_plugin_python-1.2.3-py3-none-any.whl
 ARG DEBIAN_FRONTEND=noninteractive
 
 ENV PATH=${PREFIX}/bin:$PATH
